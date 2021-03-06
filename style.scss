@@ -1,7 +1,9 @@
 //variables for the document
+$back-img: url(https://images.unsplash.com/photo-1597255708315-dc73f3ab1647?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80);
 
-$back-img: url(https://images.unsplash.com/photo-1599334418187-f595f89bcb16?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80);
-    
+//Google font
+@import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap');
+
 //variables - color pallette
 $color-1: #90916A; // Sage Green - Action color
 $color-2: black; // Black
@@ -9,217 +11,395 @@ $color-3: #9EBAD1; // light Blue
 $color-4: #856665; // mauve
 $color-5: #FFFCE6; // off white
 $color-6: #525252; // dark grey
-$color-7: #382C2B; // dark brown  
+$color-7: #382C2B; // dark brown 
+$color-8: #3A8AC2; // hyperlink blue 
 
 //variables - fonts
-$primary-font: 'Abril Fatface', cursive;
-$secondary-font: 'Dosis', sans-serif;
+$primary-font: 'Eagle Lake', cursive;
+$secondary-font: 'helvetica', sans-serif;
 
-body { 
-	display: block;
-    font-family: $secondary-font;
-    font-size: 75%;
-	line-height: 1.88889;
-    opacity: 1.0;
-	}
+//mixins
 
-h1 {
-    font-family: $primary-font;
-    font-size: 4em;
-}
-/* css Zen Garden default style v1.02 */
-/* css released under Creative Commons License - http://creativecommons.org/licenses/by-nc-sa/1.0/  */
-
-/* This file based on 'Tranquille' by Dave Shea */
-/* You may use this file as a foundation for any new work, but you may find it easier to start from scratch. */
-/* Not all elements are defined in this file, so you'll most likely want to refer to the xhtml as well. */
-
-/* Your images should be linked as if the CSS file sits in the same folder as the images. ie. no paths. */
-
-
-/* basic elements */
-html {
-	margin: 0;
-	padding: 0;
-	}
-body { 
-	font: 75% georgia, sans-serif;
-	line-height: 1.88889;
-	background: #fff url(https://images.unsplash.com/photo-1599334418187-f595f89bcb16?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80) no-repeat center; 
-	width: 100%;
-	height: 100%;
-	margin: 0; 
-	padding: 0;
-	}
-p { 
-	margin-top: 0; 
-	text-align: justify;
-	}
-h3 { 
-	font: italic normal 1.4em georgia, sans-serif;
-	letter-spacing: 1px; 
-	margin-bottom: 0; 
-	color: #7D775C;
-	}
-a:link { 
-	font-weight: bold; 
-	text-decoration: none; 
-	color: #B7A5DF;
-	}
-a:visited { 
-	font-weight: bold; 
-	text-decoration: none; 
-	color: #D4CDDC;
-	}
-a:hover, a:focus, a:active { 
-	text-decoration: underline; 
-	color: #9685BA;
-	}
-abbr {
-	border-bottom: none;
-	}
-
-
-/* specific divs */
-.page-wrapper { 
-	padding: 0 175px 0 110px;  
-	margin: 0; 
-	position: relative;
-	}
-
-.intro { 
-	min-width: 470px;
-	width: 100%;
-	}
-
-header h1 { 
-	background: transparent url(http://csszengarden.com/001/h1.gif) no-repeat top left; 
-	margin-top: 10px;
-	display: block;
-	width: 219px;
-	height: 87px;
-	float: left;
-
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-	}
-header h2 { 
-	background: transparent url(http://csszengarden.com/001/h2.gif) no-repeat top left; 
-	margin-top: 58px; 
-	margin-bottom: 40px; 
-	width: 200px; 
-	height: 18px; 
-	float: right;
-
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-	}
-header {
-	padding-top: 20px;
-	height: 87px;
+@mixin back-color {
+    background-color: rgb(255, 252, 230, .6);
+//    border-radius: .7em;
+    padding: 2em 4em;
 }
 
-.summary {
-	clear: both; 
-	margin: 20px 20px 20px 10px; 
-	width: 160px; 
-	float: left;
+@mixin back-img-sz {
+    background-image: $back-img;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+@supports (display: grid) {
+    //Assignment from last week
+	@media only screen and (max-width: 600px) {
+        body {
+          display: grid;
+          padding: 5vw;
+          line-height: 1.88889;
+          background: #fff $back-img no-repeat center; 
+	      background-size: cover;
+		  font-family:$secondary-font;
+		  
+        }
+
+        header h1{
+            font-size: 2.3em;
+            font-family: $primary-font;
+			color: $color-1;
+        }
+        
+        header h2{
+            font-size: 1.3em;
+            margin-left: 3rem;
+            margin-top: -2rem;
+			color: $color-1;
+        } 
+		h3 { 
+			font: 2em $secondary-font;	
+			color: $color-6;	
+		}
+
+		.page-wrapper {
+			@include back-color;
+		}
+					
+		li a {
+			color: $color-7;			
+		}
+	
+      
+	}  
+@media screen and (max-width: 800px) and (min-width: 601px) {
+	body{
+		max-width: 900px;
+		margin: 0 auto;
+		line-height: 1.88889;    
+		background: #fff $back-img no-repeat center; 
+		background-size: cover;    
 	}
-.summary p {
-	font: italic 1.1em/2.2 georgia; 
-	text-align: center;
+	header h1{
+		font-size: 2.3em;
+		font-family: $primary-font;
+	}
+	
+	header h2{
+		font-size: 1.3em;
+		margin-left: 3rem;
+		margin-top: -3rem;
+	}
+	.page-wrapper {
+		@include back-color;
+		margin: 0;
+	}	
+	.sidebar {
+		margin: 0;
+	}
+}
+@media only screen and (min-width: 801px) {
+	body{
+		max-width: 900px;
+		margin: 0 auto;
+		line-height: 1.88889;    
+		background: #fff $back-img no-repeat center; 
+		background-size: cover;    
+	}
+	.page-wrapper{
+		display: grid;
+		grid-template-columns: 2fr 4fr;
+		@include back-color;
+		margin: 0 -6em;
+	}
+	.intro{
+		grid-column: 2 /3;
+		grid-row: 1;
+		margin-top: 30px;
 	}
 
-.preamble {
-	clear: right; 
-	padding: 0px 10px 0 10px;
-	}
-.supporting {	
-	padding-left: 10px; 
-	margin-bottom: 40px;
+	.supporting{
+		grid-column: 2 /3;
+		grid-row: 1;
+		margin-top: 730px;
+		z-index: 1;
 	}
 
-footer { 
-	text-align: center; 
-	}
-footer a:link, footer a:visited { 
-	margin-right: 20px; 
+	body div{
+		grid-column: 2 /3;
+		
+		
 	}
 
-.sidebar {
-	margin-left: 600px; 
-	position: absolute; 
-	top: 0; 
-	right: 0;
+	.sidebar{
+		grid-column: 1;
+		grid-row: 1;
+		font-family: $secondary-font;
+		margin-top: 27vh;
+		width: 230px;
+		margin-right:5vw;
+		text-decoration: none;
 	}
-.sidebar .wrapper { 
-	font: 10px verdana, sans-serif;
-	 /*Background for sidebar */
-	background: transparent url(http://csszengarden.com/001/paper-bg.jpg) top left repeat-y; 
-	padding: 10px; 
-	margin-top: 150px; 
-	width: 130px; 
-	}
-.sidebar h3.select { 
-	/* background: transparent url(http://csszengarden.com/001/h3.gif) no-repeat top left;  */
-	margin: 10px 0 5px 0; 
-	width: 97px; 
-	height: 16px; 
 
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-	}
-.sidebar h3.archives { 
-	background: transparent url(http://csszengarden.com/001/h5.gif) no-repeat top left; 
-	margin: 25px 0 5px 0; 
-	width:57px; 
-	height: 14px; 
-
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-	}
-.sidebar h3.resources { 
-	background: transparent url(http://csszengarden.com/001/h6.gif) no-repeat top left; 
-	margin: 25px 0 5px 0; 
-	width:63px; 
-	height: 10px; 
-
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
+	body section header{
+		border: solid;
+		$color-1: #90916A;  
 	}
 
 
-.sidebar ul {
-	margin: 0;
-	padding: 0;
+	header h1{
+		font-size: 3em;
+		font-family: $primary-font;
 	}
-.sidebar li {
-	line-height: 1.3em; 
-	background: transparent url(http://csszengarden.com/001/cr1.gif) no-repeat top center; 
-	display: block; 
-	padding-top: 5px; 
-	margin-bottom: 5px;
-	list-style-type: none;
+
+	header h2{
+		font-size: 2em;
+		margin-left: 5rem;
+		margin-top: -3rem;
 	}
-.sidebar li a:link {
-	color: #988F5E;
+	li a {
+		color: $color-7;			
 	}
-.sidebar li a:visited {
-	color: #B3AE94;
+	a {
+		color: $color-8;
+	}
+  
 	}
 
 
-.extra1 {
-	/* pagoda picture */
-	/* background: transparent url(http://csszengarden.com/001/cr2.gif) top left no-repeat;  */
-	position: absolute; 
-	top: 40px; 
-	right: 0; 
-	width: 148px; 
-	height: 110px;
+ 
+    
+}
+@supports not (display: grid) {
+	
+		html {
+			margin: 0;
+			padding: 0;
+			}
+		
+		body { 
+			display: block;
+			font-family: $secondary-font;
+			font-size: 75%;
+			line-height: 1.88889;
+			width: 100%;
+			height: 100%;
+			margin: 0; 
+			padding: 0;
+			@include back-img-sz;
+			}
+		
+		h1 {
+			font-family: $primary-font;
+			font-size: 5em;
+			color: $color-1;
+			text-shadow: 1.2em $color-5;
+			margin: 0;
+			display: block;
+			float: left;
+		}
+		
+		h2 {  
+			font-family: $secondary-font;
+			color: $color-1;
+			display: flex;
+			flex-flow: row nowrap;
+			flex: 2 0 100%;  
+			padding-left: 2em;
+			padding-top: 2em;
+			width: 30%;
+			}
+		
+		h3 { 
+			font: 2em $secondary-font;
+			letter-spacing: 1px;
+			//margin-bottom: 0;
+			color: $color-6;
+			text-shadow: .8em $color-5;
+			margin-left: 4%;
+
+			}
+		
+		.preamble {
+			#zen-preamble {
+			  h3 {
+				margin-top: 5em;
+				margin-bottom: 0;
+		}  
+			}
+		}
+		 
+		
+		// h2, h3, p {
+		// 	@include back-color;
+		// }
+		
+		p { 
+			margin: 0; 
+			text-align: justify;
+			font-family: $secondary-font;
+			line-height: 2;
+			padding: 3em;
+			}
+		
+		a:link { 
+			font-weight: bold; 
+			text-decoration: none; 
+			color: $color-8;
+			}
+		
+		a:visited { 
+			font-weight: bold; 
+			text-decoration: none; 
+			color: $color-4;
+			}
+		a:hover, a:focus, a:active { 
+			text-decoration: underline; 
+			color: $color-3;
+			}
+		abbr {
+			border-bottom: none;
+			}
+		
+		
+		/* specific divs */
+		.page-wrapper { 
+			padding: 0 175px 0 110px;  
+			position: relative;
+			@include back-color;
+			width: 60%;
+			margin-left: 15%;
+			margin-right: 5%;			
+
+			}
+		
+		.intro, .explanation { 
+			// min-width: 470px;
+			// width: 100%;
+			margin-right: 5%;
+			}
+		.supporting {
+			margin: 0 15%;
+		}
+		header {
+			padding-top: 20px;
+			padding-bottom: 1em;
+			height: 87px;
+			margin-left: 17%;
+		}
+		
+		.summary {
+			// clear: both; 
+			// margin: 20px 20px 20px 10px; 
+			// width: 160px; 
+			// float: left;
+			margin-bottom: 0;
+			}
+		.summary p {
+			font: italic 1.1em/2.2 georgia; 
+			text-align: center;
+			margin-bottom: -5em;
+			}
+		
+		.preamble {
+			clear: right; 
+			padding: 0px 10px 0 10px;
+			margin-top: 4em;
+			margin-left: 15%;
+			margin-right: 5%;
+			}
+		.supporting {	
+			padding-left: 10px; 
+			margin-bottom: 40px;
+			}
+		
+		footer { 
+			text-align: center; 
+			}
+		footer a:link, footer a:visited { 
+			margin-right: 20px; 
+			}
+		
+		.sidebar {
+			// float: left;
+			// position: absolute; 
+			// top: 0; 
+			// right: 0;
+			// margin-right: 85%;
+			.wrapper { 
+			font: 10px $secondary-font;
+			 /*Background for sidebar */
+		//	background: transparent url(http://csszengarden.com/001/paper-bg.jpg) top left repeat-y; 
+			padding: 10px; 
+			margin-top: 150px; 
+			width: 130px; 
+			}
+			h3.select {   
+			//margin: 3em 0 2em 0; 
+			width: 2em; 
+			height: 5em; 
+			background-color: transparent;
+			}
+			h3.archives { 
+			background: transparent; 
+			margin: 0; 
+			width: 20em; 
+			height: 4em; 
+			}
+			h3.resources { 
+			background: transparent; 
+			margin: 25px 0 5px 0; 
+			width:63px; 
+			height: 10px; 
+			}
+
+			ul {
+			margin: 0;
+			padding: 0;
+			}
+			li {
+			line-height: 1.3em; 
+		//	background: transparent url(http://csszengarden.com/001/cr1.gif) no-repeat top center; 
+			display: block; 
+			padding-top: 5px; 
+			margin-bottom: 5px;
+			list-style-type: none;			
+			}
+			li a:link {
+			color:$color-4;
+			}
+			li a:visited {
+			color: $color-4;
+			}
+			}
+		 		
+		.extra1 {
+			/* pagoda picture */
+			/* background: transparent url(http://csszengarden.com/001/cr2.gif) top left no-repeat;  */
+			position: absolute; 
+			top: 40px; 
+			right: 0; 
+			width: 148px; 
+			height: 110px;
+			}
+	
+	@media only screen and (max-width: 600px) {
+		body {
+			font-size: 75%;
+		}
+
 	}
+    @media only screen and (min-width: 601px) {
+			.sidebar {
+				margin-right: 85%;
+				float: left;
+				position: absolute; 
+				top: 0; 
+				right: 0;
+				
+			}
+
+	}
+    //the rest of your code.
+ }
