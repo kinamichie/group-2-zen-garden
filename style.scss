@@ -12,7 +12,7 @@ $color-4: #856665; // mauve
 $color-5: #FFFCE6; // off white
 $color-6: #525252; // dark grey
 $color-7: #382C2B; // dark brown 
-$color-8: #3A8AC2; // hyperlink blue 
+$color-8: #003EF5; // hyperlink blue -- Changed the color to be darker so it is more visible on the white background
 
 //variables - fonts
 $primary-font: 'Eagle Lake', cursive;
@@ -21,8 +21,7 @@ $secondary-font: 'helvetica', sans-serif;
 //mixins
 
 @mixin back-color {
-    background-color: rgb(255, 252, 230, .6);
-//    border-radius: .7em;
+    background-color: rgb(255, 252, 230, .8);
     padding: 2em 4em;
 }
 
@@ -32,6 +31,25 @@ $secondary-font: 'helvetica', sans-serif;
     background-position: center;
     background-size: cover;
 }
+header {
+	animation: fadeIn 4s ease ;
+}
+@keyframes fadeIn {
+	0% {
+	  opacity:0;
+	}
+	100% {
+	  opacity:1;
+	}
+  }
+
+  h1 {
+	  padding-left: 10%;
+	
+  }
+  h2 {
+	  padding-left: 15%;
+  }
 
 @supports (display: grid) {
     //Assignment from last week
@@ -70,8 +88,6 @@ $secondary-font: 'helvetica', sans-serif;
 		li a {
 			color: $color-7;			
 		}
-	
-      
 	}  
 @media screen and (max-width: 800px) and (min-width: 601px) {
 	body{
@@ -81,11 +97,12 @@ $secondary-font: 'helvetica', sans-serif;
 		background: #fff $back-img no-repeat center; 
 		background-size: cover;    
 	}
+  
 	header h1{
 		font-size: 2.3em;
 		font-family: $primary-font;
-	}
-	
+		
+	}	
 	header h2{
 		font-size: 1.3em;
 		margin-left: 3rem;
@@ -113,10 +130,12 @@ $secondary-font: 'helvetica', sans-serif;
 		@include back-color;
 		margin: 0 -6em;
 	}
+
 	.intro{
 		grid-column: 2 /3;
 		grid-row: 1;
 		margin-top: 30px;
+		text-decoration: none;
 	}
 
 	.supporting{
@@ -128,8 +147,6 @@ $secondary-font: 'helvetica', sans-serif;
 
 	body div{
 		grid-column: 2 /3;
-		
-		
 	}
 
 	.sidebar{
@@ -142,9 +159,10 @@ $secondary-font: 'helvetica', sans-serif;
 		text-decoration: none;
 	}
 
-	body section header{
+	header{
 		border: solid;
-		$color-1: #90916A;  
+		color: $color-1;  //sage green
+  		border-radius: 30px;
 	}
 
 
@@ -157,20 +175,66 @@ $secondary-font: 'helvetica', sans-serif;
 		font-size: 2em;
 		margin-left: 5rem;
 		margin-top: -3rem;
+		font-family: $secondary-font
 	}
 	li a {
 		color: $color-7;			
 	}
 	a {
 		color: $color-8;
-	}
-  
-	}
-
-
- 
-    
+	}     
 }
+}
+//display flex if grid is not supported
+@supports (display: grid) {
+	@media only screen and (max-width: 600px) {
+		body {
+		  display: flexbox;
+		  flex-direction: column;
+		  flex-wrap: wrap;
+		  padding: 1.5em;
+		  line-height: 1.88889;
+		  background: #fff $back-img no-repeat center; 
+		  background-size: cover;
+		  font-family:$secondary-font;
+		  
+		}
+		body section header{
+			border: solid;
+			color: $color-1;  //corrected syntax - used to be: $color-1: #90916A; - now it appears sage green
+		}
+		header h1{
+			font-size: 3em;
+			font-family: $primary-font;
+			color: $color-1;
+			margin-left: .7em; // moved the h1 away from the border
+		}
+		
+		header h2{
+			font-size: 1.3em;
+			margin-left: 5.7rem; //adjusted margin to align with h1 and keep it centered
+			margin-top: -2rem;
+			color: $color-1;
+		}
+		h3 { 
+			font: 2em $secondary-font;	
+			color: $color-6;	
+		}
+		.page-wrapper {
+			@include back-color;
+		} 
+		li a {
+			color: $color-7;			
+		}
+		a {
+			color: $color-8;
+			text-decoration: none; // remove underline
+		}
+	}
+}
+
+
+
 @supports not (display: grid) {
 	
 		html {
@@ -214,6 +278,7 @@ $secondary-font: 'helvetica', sans-serif;
 		h3 { 
 			font: 2em $secondary-font;
 			letter-spacing: 1px;
+			text-decoration: none;
 			//margin-bottom: 0;
 			color: $color-6;
 			text-shadow: .8em $color-5;
@@ -374,15 +439,16 @@ $secondary-font: 'helvetica', sans-serif;
 			}
 			}
 		 		
-		.extra1 {
-			/* pagoda picture */
-			/* background: transparent url(http://csszengarden.com/001/cr2.gif) top left no-repeat;  */
-			position: absolute; 
-			top: 40px; 
-			right: 0; 
-			width: 148px; 
-			height: 110px;
-			}
+		// .extra1 {
+		// 	/* pagoda picture */
+		// 	/* background: transparent url(http://csszengarden.com/001/cr2.gif) top left no-repeat;  */
+		// 	background: transparent $tree;
+		// 	position: absolute; 
+		// 	top: 40px; 
+		// 	right: 0; 
+		// 	width: 148px; 
+		// 	height: 110px;
+		// 	}
 	
 	@media only screen and (max-width: 600px) {
 		body {
