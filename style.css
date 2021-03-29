@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap");
-header {
+body {
   animation: fadeIn 4s ease;
 }
 
@@ -11,6 +11,10 @@ header {
     opacity: 1;
   }
 }
+header {
+  color: #90916A;
+}
+
 h1 {
   padding-left: 10%;
 }
@@ -19,6 +23,138 @@ h2 {
   padding-left: 15%;
 }
 
+h3 {
+  font-size: 1.3em;
+  color: #525252;
+}
+
+p {
+  font-size: 1.2em;
+  color: #382C2B;
+}
+
+ul {
+  list-style-type: none;
+  margin-left: -44px;
+  margin-top: -30px;
+}
+
+li {
+  font-style: italic;
+  margin-left: 0;
+  line-height: 1.5em;
+  padding: 10px;
+}
+
+a {
+  font-style: normal;
+}
+
+a:link {
+  color: #aa671b;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+a:hover {
+  color: #003EF5;
+  font-size: 1.25em;
+}
+
+a:visited {
+  color: black;
+}
+
+a:active {
+  background-color: #9EBAD1;
+}
+
+.wrapper {
+  border-radius: 15px;
+  border-color: #525252;
+  padding: 5px;
+  width: 275px;
+}
+
+.design-selection {
+  padding-top: -20px;
+}
+
+.design-selection a:nth-of-type(1) {
+  display: block;
+}
+
+.design-selection a:nth-of-type(2) {
+  font-size: 0.9em;
+}
+
+.design-selection h3 {
+  margin-top: -25px;
+  font-size: 2em;
+}
+
+.extra1 {
+  position: absolute;
+  width: 75px;
+  height: 200px;
+  background-color: #856665;
+  -moz-border-radius: 200px 200px 200px 200px;
+  border-radius: 200px 200px 200px 200px;
+  margin-left: 2%;
+  top: 0;
+  z-index: 3;
+  margin-top: 4%;
+  animation: grow 8s alternate ease-in;
+}
+.extra1:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  width: 75px;
+  height: 200px;
+  background: #856665;
+  -moz-border-radius: 200px 200px 200px 200px;
+  border-radius: 200px 200px 200px 200px;
+  -webkit-transform: rotate(60deg);
+  -moz-transform: rotate(60deg);
+  -ms-transform: rotate(60deg);
+  -o-transform: rotate(60deg);
+  transform: rotate(60deg);
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+.extra1:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  width: 75px;
+  height: 200px;
+  background: #856665;
+  -moz-border-radius: 200px 200px 200px 200px;
+  border-radius: 200px 200px 200px 200px;
+  -webkit-transform: rotate(-60deg);
+  -moz-transform: rotate(-60deg);
+  -ms-transform: rotate(-60deg);
+  -o-transform: rotate(-60deg);
+  transform: rotate(-60deg);
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 @supports (display: grid) {
   @media only screen and (max-width: 600px) {
     body {
@@ -81,6 +217,7 @@ h2 {
       background-color: rgba(255, 252, 230, 0.8);
       padding: 2em 4em;
       margin: 0;
+      box-shadow: 1px 0px 6px 5px rgba(0, 0, 0, 0.137), -1px 0px 6px 5px rgba(0, 0, 0, 0.247);
     }
 
     .sidebar {
@@ -102,6 +239,11 @@ h2 {
       background-color: rgba(255, 252, 230, 0.8);
       padding: 2em 4em;
       margin: 0 -6em;
+    }
+
+    .extra1 {
+      grid-column: 1/1;
+      grid-row: 1/1;
     }
 
     .intro {
@@ -159,7 +301,7 @@ h2 {
     }
   }
 }
-@supports (display: grid) {
+@supports not (display: grid) {
   @media only screen and (max-width: 600px) {
     body {
       display: flexbox;

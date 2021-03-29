@@ -1,5 +1,6 @@
 //variables for the document
 $back-img: url(https://images.unsplash.com/photo-1597255708315-dc73f3ab1647?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80);
+$tree-img: url(https://cdn.pixabay.com/photo/2016/10/18/19/33/tree-1751178_960_720.png);
 
 //Google font
 @import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap');
@@ -13,6 +14,7 @@ $color-5: #FFFCE6; // off white
 $color-6: #525252; // dark grey
 $color-7: #382C2B; // dark brown 
 $color-8: #003EF5; // hyperlink blue -- Changed the color to be darker so it is more visible on the white background
+$color-9: #aa671b; //burnt orange
 
 //variables - fonts
 $primary-font: 'Eagle Lake', cursive;
@@ -31,7 +33,7 @@ $secondary-font: 'helvetica', sans-serif;
     background-position: center;
     background-size: cover;
 }
-header {
+body {
 	animation: fadeIn 4s ease ;
 }
 @keyframes fadeIn {
@@ -42,14 +44,145 @@ header {
 	  opacity:1;
 	}
   }
+header {
+	color: $color-1; //sage green
+}
 
-  h1 {
-	  padding-left: 10%;
+h1 {
+	padding-left: 10%;
 	
-  }
-  h2 {
-	  padding-left: 15%;
-  }
+}
+h2 {
+	padding-left: 15%;
+}
+h3 {
+	font-size: 1.3em;
+	color: $color-6;
+}
+p {
+	font-size: 1.2em;
+	color: $color-7;
+}
+ul{
+	list-style-type: none;
+	margin-left: -44px;
+	margin-top: -30px;
+}
+
+li{
+	font-style: italic;
+	margin-left: 0;
+	line-height: 1.5em;
+	padding:10px;
+}
+
+a{
+	font-style: normal;
+
+}
+a:link{
+	color: $color-9; //changed this to be an orangish color
+	text-decoration: none;
+	font-size:1.2em;
+}
+a:hover{
+	color: $color-8;
+	font-size: 1.25em;
+}
+a:visited{
+	color:$color-2;
+}
+a:active{
+	background-color: $color-3;
+}
+
+//Took out the border from the top and moved it to the wrapper items
+.wrapper{
+	border-radius: 15px;
+	border-color: $color-6;
+	padding:5px;
+	width: 275px;
+}
+
+//adds a line break after the link element
+
+.design-selection{
+	padding-top:-20px;
+
+}
+.design-selection a:nth-of-type(1){
+	display: block;
+
+}
+
+.design-selection a:nth-of-type(2){
+	font-size:.9em;
+}
+
+.design-selection h3{
+	margin-top: -25px;
+	font-size:2em;
+}  
+.extra1 {
+		position: absolute;
+		width: 75px;
+		height: 200px;
+		background-color: $color-4;
+		-moz-border-radius: 200px 200px 200px 200px;
+		border-radius: 200px 200px 200px 200px;
+		margin-left: 2%;
+		top: 0;
+		z-index: 3;
+		margin-top: 4%;
+		animation: grow 8s alternate ease-in;
+
+	&:after {
+		position: absolute;
+		content: "";
+		top: 0;
+		width: 75px;
+		height: 200px;
+		background: $color-4;
+			-moz-border-radius:  200px 200px 200px 200px;
+		border-radius:  200px 200px 200px 200px;
+		-webkit-transform: rotate(60deg);
+		   -moz-transform: rotate(60deg);
+			-ms-transform: rotate(60deg);
+			 -o-transform: rotate(60deg);
+				transform: rotate(60deg);
+		-webkit-transform-origin: 50% 50%;
+		   -moz-transform-origin: 50% 50%;
+			-ms-transform-origin: 50% 50%;
+			 -o-transform-origin: 50% 50%;
+				transform-origin: 50% 50%;           
+	}
+	&:before {
+		position: absolute;
+		content: "";
+		top: 0;
+		width: 75px;
+		height: 200px;
+		background: $color-4;
+		-moz-border-radius:  200px 200px 200px 200px;
+		border-radius:  200px 200px 200px 200px;
+		-webkit-transform: rotate(-60deg);
+		   -moz-transform: rotate(-60deg);
+			-ms-transform: rotate(-60deg);
+			 -o-transform: rotate(-60deg);
+				transform: rotate(-60deg);
+		-webkit-transform-origin: 50% 50%;
+		   -moz-transform-origin: 50% 50%;
+			-ms-transform-origin: 50% 50%;
+			 -o-transform-origin: 50% 50%;
+				transform-origin: 50% 50%;
+			   
+	}
+}
+@keyframes grow {
+	0% { transform: scale(.5) }
+	100%{ transform: scale(1.0) }
+}
+
 
 @supports (display: grid) {
     //Assignment from last week
@@ -111,10 +244,12 @@ header {
 	.page-wrapper {
 		@include back-color;
 		margin: 0;
+		box-shadow: 1px 0px 6px 5px rgba(0, 0, 0, 0.137), -1px 0px 6px 5px rgba(0, 0, 0, 0.247);
 	}	
 	.sidebar {
 		margin: 0;
 	}
+	
 }
 @media only screen and (min-width: 801px) {
 	body{
@@ -129,6 +264,10 @@ header {
 		grid-template-columns: 2fr 4fr;
 		@include back-color;
 		margin: 0 -6em;
+	}
+	.extra1 {
+		grid-column: 1 /  1;
+		grid-row: 1 / 1;
 	}
 
 	.intro{
@@ -186,7 +325,7 @@ header {
 }
 }
 //display flex if grid is not supported
-@supports (display: grid) {
+@supports not (display: grid) {
 	@media only screen and (max-width: 600px) {
 		body {
 		  display: flexbox;
