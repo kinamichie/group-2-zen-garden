@@ -11,8 +11,7 @@ $color-3: #9EBAD1; // light Blue
 $color-4: #856665; // mauve
 $color-5: #FFFCE6; // off white
 $color-6: #525252; // dark grey
-$color-7: #382C2B; // dark brown 
-$color-8: #003EF5; // hyperlink blue -- Changed the color to be darker so it is more visible on the white background
+$color-7: #382C2B; // dark brown
 $color-9: #a6596c; // dk flower
 $color-10: #B87A8A; //med flower
 $color-11: #c695a1; // light flower
@@ -22,641 +21,530 @@ $color-11: #c695a1; // light flower
 //variables - fonts
 $primary-font: 'Eagle Lake', cursive;
 $secondary-font: 'helvetica', sans-serif;
+$font-3: 'georgia';
 
 //mixins
 
+@mixin bdy-style {
+line-height: 1.88889;
+background: $back-img no-repeat center;
+background-size: cover;
+}
+
 @mixin back-color {
-    background-color: rgb(255, 252, 230, .8);
-    padding: 2em 4em;
+background-color: rgb(255, 252, 230, .8);
+padding: 2em 4em;
 }
 
 @mixin back-img-sz {
-    background-image: $back-img;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+background-image: $back-img;
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
 }
+
+//scss code
 body {
-	animation: fadeIn 4s ease ;
+@include bdy-style;
+animation: fadeIn 4s ease ;
 }
 @keyframes fadeIn {
-	0% {
-	  opacity:0;
-	}
-	100% {
-	  opacity:1;
-	}
-  }
+0% {
+opacity:0;
+}
+100% {
+opacity:1;
+}
+}
+
+.page-wrapper {
+@include back-color;
+}
+
 header {
-	color: $color-1; //sage green
+border: solid;
+color: $color-1; //sage green
+border-radius: 30px;
 }
 
 h1 {
-	padding-left: 10%;
-	font-family: $primary-font;
-	
+padding-left: 10%; //add space around text
+font-family: $primary-font; //title font
+
 }
 h2 {
-	padding-left: 15%;
+font-family: $secondary-font;
 }
+
 h3 {
-	font-size: 1.3em;
-	color: $color-6;
+font-size: 1.3em; //increase font size
+color: $color-6; //dark gray
 }
+
 p {
-	font-size: 1.2em;
-	color: $color-7;
+font-family: $secondary-font;
+font-size: 1.2em; //increase font size
+color: $color-7; //dark brown
 }
+
 ul{
-	list-style-type: none;
-	margin-left: -44px;
-	margin-top: -30px;
+list-style-type: none; //remove bullet points
+margin-left: -44px; //slides it over to left
+margin-top: -30px; //moves it up
 }
 
 li{
-	font-style: italic;
-	margin-left: 0;
-	line-height: 1.5em;
-	padding:10px;
+font-style: italic;
+margin-left: 0;
+line-height: 1.5em;
+padding:10px;
 }
 
-a{
-	font-style: normal;
-
-}
-a:link{
-	color: $color-9; 
-	text-decoration: none;
-	font-size:1.2em;
+a {
+font-style: normal;
+color: $color-9; //dk flower
+text-decoration: none;
+// font-size:1.2em;
 }
 a:hover{
-	color: $color-8;
-	font-size: 1.25em;
+color: $color-7; //dark brown
+font-size: 1.1em;
 }
 a:visited{
-	color:$color-2;
+color:$color-2; //black
 }
 a:active{
-	background-color: $color-3;
+background-color: $color-7; //dark brown
 }
 
 //Took out the border from the top and moved it to the wrapper items
 .wrapper{
-	border-radius: 15px;
-	border-color: $color-6;
-	padding:5px;
-	width: 275px;
+width: 100%;
 }
 
-//adds a line break after the link element
 
-.design-selection{
-	padding-top:-20px;
-
-}
+//side bar navigation styling
 .design-selection a:nth-of-type(1){
-	display: block;
+display: block;
 
 }
 
 .design-selection a:nth-of-type(2){
-	font-size:.9em;
+font-size:.9em;
 }
 
 .design-selection h3{
-	margin-top: -25px;
-	font-size:2em;
-} 
-.extra3 {
-	background: $color-9;
-	width: 100px;
-	height: 100px;
-	position: relative;
-	text-align: center;
-	position: absolute;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-	margin-left: .5%;
-	top: 0;
-	z-index: 4;
-	margin-top: 7.2%;
-	animation: grow 8s alternate ease-in;
+margin-top: -25px;
+font-size:2em;
+}
 
-  &:before,
-  &:after {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100px;
-	width: 100px;
-	background: $color-9;
-	border-radius: 10px;
-  }
-  &:before {
-	transform: rotate(30deg);
-  }
-  &:after {
-	transform: rotate(60deg);
-  } 
+.extra3 {
+background: $color-9; //dk flower
+width: 100px;
+height: 100px;
+position: relative;
+text-align: center;
+position: absolute;
+-moz-border-radius: 10px;
+border-radius: 10px;
+margin-left: .5%;
+top: 0;
+z-index: 4;
+margin-top: 7.2%;
+animation: grow 4.7s alternate ease-in;
+
+&:before,
+&:after {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+height: 100px;
+width: 100px;
+background: $color-9; //dk flower
+border-radius: 10px;
+}
+&:before {
+transform: rotate(30deg);
+}
+&:after {
+transform: rotate(60deg);
+}
 }
 .extra2 {
 
-	background: $color-11;
-	width: 90px;
-	height: 90px;
-	position: relative;
-	text-align: center;
-	position: absolute;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-	margin-left: 5.5%;
-	top: 0;
-	z-index: 4;
-	margin-top: 5.75%;
-	animation: grow 8s alternate ease-in;
+background: $color-11; //light flower
+width: 90px;
+height: 90px;
+position: relative;
+text-align: center;
+position: absolute;
+-moz-border-radius: 10px;
+border-radius: 10px;
+margin-left: 5.5%;
+top: 0;
+z-index: 4;
+margin-top: 5.75%;
+animation: grow 4.7s alternate ease-in;
 
-  &:before,
-  &:after {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 90px;
-	width: 90px;
-	background: $color-11;
-	border-radius: 10px;
-  }
-  &:before {
-	transform: rotate(30deg);
-  }
-  &:after {
-	transform: rotate(60deg);
-  } 
+&:before,
+&:after {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+height: 90px;
+width: 90px;
+background: $color-11; //light flower
+border-radius: 10px;
+}
+&:before {
+transform: rotate(30deg);
+}
+&:after {
+transform: rotate(60deg);
+}
 }
 
 .extra1 {
-	background: $color-10;
-	width: 80px;
-	height: 80px;
-	position: relative;
-	text-align: center;
-	position: absolute;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-	margin-left: 1.75%;
-	top: 0;
-	z-index: 3;
-	margin-top: 3%;
-	animation: grow 8s alternate ease-in;
-  
-  &:before,
-  &:after {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 80px;
-	width: 80px;
-	background: $color-10;
-	border-radius: 10px;
-  }
-  &:before {
-	transform: rotate(30deg);
-  }
-  &:after {
-	transform: rotate(60deg);
-  } 
+background: $color-10; //med flower
+width: 80px;
+height: 80px;
+position: relative;
+text-align: center;
+position: absolute;
+-moz-border-radius: 10px;
+border-radius: 10px;
+margin-left: 1.75%;
+top: 0;
+z-index: 3;
+margin-top: 3%;
+animation: grow 4.7s alternate ease-in;
+
+&:before,
+&:after {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+height: 80px;
+width: 80px;
+background: $color-10; //med flower
+border-radius: 10px;
+}
+&:before {
+transform: rotate(30deg);
+}
+&:after {
+transform: rotate(60deg);
+}
 }
 
 @keyframes grow {
-	0% { transform: scale(.5) }
-	100%{ transform: scale(1.0) }
+0% { transform: scale(.5) }
+100%{ transform: scale(1.0) }
 }
 
-
+//small screen
 @supports (display: grid) {
-	@media only screen and (max-width: 600px) {
-        body {
-          display: grid;
-          padding: 5vw;
-          line-height: 1.88889;
-          background: #fff $back-img no-repeat center; 
-	      background-size: cover;
-		  font-family:$secondary-font;
-		  
-        }
-		.extra1 {
-			visibility: hidden;
-		}
-        header h1{
-            font-size: 2.3em;
-        }
-        
-        header h2{
-            font-size: 1.3em;
-            margin-left: 3rem;
-            margin-top: -2rem;
-			color: $color-1;
-        } 
-		h3 { 
-			font: 2em $secondary-font;	
-			color: $color-6;	
-		}
-
-		.page-wrapper {
-			@include back-color;
-		}
-					
-		li a {
-			color: $color-7;			
-		}
-	}  
-@media screen and (max-width: 800px) and (min-width: 601px) {
-	body{
-		max-width: 900px;
-		margin: 0 auto;
-		line-height: 1.88889;    
-		background: #fff $back-img no-repeat center; 
-		background-size: cover;    
-	}
-	.extra1 {
-		visibility: hidden;
-	}
-	header h1{
-		font-size: 2.3em;
-		font-family: $primary-font;
-		
-	}	
-	header h2{
-		font-size: 1.3em;
-		margin-left: 3rem;
-		margin-top: -3rem;
-	}
-	.page-wrapper {
-		@include back-color;
-		margin: 0;
-		box-shadow: 1px 0px 6px 5px rgba(0, 0, 0, 0.137), -1px 0px 6px 5px rgba(0, 0, 0, 0.247);
-	}	
-	.sidebar {
-		margin: 0;
-	}
-	
+@media only screen and (max-width: 750px) {
+body {
+font-size: 75%;
+display: grid;
+grid-template-columns: auto;
+padding: 5vw;
+font-family:$secondary-font;
 }
-@media only screen and (min-width: 801px) {
-	body{
-		max-width: 900px;
-		margin: 0 auto;
-		line-height: 1.88889;    
-		background: #fff $back-img no-repeat center; 
-		background-size: cover;    
-	}
-	.page-wrapper{
-		display: grid;
-		grid-template-columns: 2fr 4fr;
-		@include back-color;
-		margin: 0 -6em;
-	}
-	.extra1 {
-		grid-column: 1 /  1;
-		grid-row: 1 / 1;
-	}
 
-	.intro{
-		grid-column: 2 /3;
-		grid-row: 1;
-		text-decoration: none;
-	}
+//hide the flower in the small screen
+.extra1, .extra2, .extra3 {
+visibility: hidden;
+}
 
-	.supporting{
-		grid-column: 2 /3;
-		grid-row: 1;
-		margin-top: 730px;
-		z-index: 1;
-	}
+header h1{
+font-size: 2.3em;
+}
 
-	body div{
-		grid-column: 2 /3;
-	}
+header h2{
+font-size: 1.3em;
+margin-left: 3rem;
+margin-top: -2rem;
+color: $color-1;
+}
+h3 {
+font: 2em $secondary-font;
+color: $color-6; //dark gray
+}
 
-	.sidebar{
-		grid-column: 1;
-		grid-row: 1;
-		font-family: $secondary-font;
-		margin-top: 27vh;
-		width: 230px;
-		margin-right:5vw;
-		text-decoration: none;
-	}
+.page-wrapper {
+@include back-color;
+}
 
-	header{
-		border: solid;
-		color: $color-1;  //sage green
-  		border-radius: 30px;
-	}
+.select {
+padding-top: 2em;
+}
+}
 
 
-	header h1{
-		font-size: 3em;
-		font-family: $primary-font;
-		color: $color-1;
-	}
+//large screen
+@media only screen and (min-width: 751px) {
+body{
+width: 65%;
+margin: 0 auto;
+}
+.page-wrapper{
+display: grid;
+grid-template-columns: 2fr 4fr;
+@include back-color;
+}
+.extra1 {
+grid-column: 1 / 1;
+grid-row: 1 / 1;
+}
 
-	header h2{
-		font-size: 2em;
-		margin-left: 5rem;
-		margin-top: -3rem;
-		font-family: $secondary-font
-	}
-	li a {
-		color: $color-7;			
-	}
-	a {
-		color: $color-8;
-	}     
+.intro{
+grid-column: 2 /3;
+grid-row: 1;
+text-decoration: none;
+}
+
+.supporting{
+grid-column: 2 /3;
+// grid-row: 4;
+margin-top: -23em;
+}
+
+body div{
+grid-column: 2 /3;
+}
+
+.sidebar{
+grid-column: 1;
+grid-row: 1;
+font-family: $secondary-font;
+margin-top: 27vh;
+width: 230px;
+margin-right:5vw;
+text-decoration: none;
+}
+
+header{
+& h1{
+font-size: 3em;
+}
+}
+
 }
 }
 //display flex if grid is not supported
 @supports not (display: grid) {
-	@media only screen and (max-width: 600px) {
-		body {
-		  display: flexbox;
-		  flex-direction: column;
-		  flex-wrap: wrap;
-		  padding: 1.5em;
-		  line-height: 1.88889;
-		  background: #fff $back-img no-repeat center; 
-		  background-size: cover;
-		  font-family:$secondary-font;
-		  
-		}
-		body section header{
-			border: solid;
-			color: $color-1;  //corrected syntax - used to be: $color-1: #90916A; - now it appears sage green
-		}
-		header h1{
-			font-size: 3em;
-			font-family: $primary-font;
-			color: $color-1;
-			margin-left: .7em; // moved the h1 away from the border
-		}
-		
-		header h2{
-			font-size: 1.3em;
-			margin-left: 5.7rem; //adjusted margin to align with h1 and keep it centered
-			margin-top: -2rem;
-			color: $color-1;
-		}
-		h3 { 
-			font: 2em $secondary-font;	
-			color: $color-6;	
-		}
-		.page-wrapper {
-			@include back-color;
-		} 
-		li a {
-			color: $color-7;			
-		}
-		a {
-			color: $color-8;
-			text-decoration: none; // remove underline
-		}
-	}
+@media only screen and (max-width: 600px) {
+body {
+display: flexbox;
+flex-direction: column;
+flex-wrap: wrap;
+padding: 1.5em;
+
+}
+header h1{
+font-size: 3em;
+margin-left: .7em; // moved the h1 away from the border
+}
+
+header h2{
+font-size: 1.3em;
+margin-left: 5.7rem; //adjusted margin to align with h1 and keep it centered
+margin-top: -2rem;
+}
+
+h3 {
+font-size: 2em;
+}
+}
+}
+
+//flexbox
+@supports not (display: grid) {
+
+html {
+margin: 0;
+padding: 0;
+}
+
+body {
+display: block;
+font-family: $secondary-font;
+font-size: 75%;
+line-height: 1.88889;
+width: 100%;
+height: 100%;
+margin: 0;
+padding: 0;
+@include back-img-sz;
+}
+
+h1 {
+font-family: $primary-font;
+font-size: 5em;
+color: $color-1;
+text-shadow: 1.2em $color-5;
+margin: 0;
+display: block;
+float: left;
+}
+
+h2 {
+font-family: $secondary-font;
+color: $color-1;
+display: flex;
+flex-flow: row nowrap;
+flex: 2 0 100%;
+padding-left: 2em;
+padding-top: 2em;
+width: 30%;
+}
+
+h3 {
+font: 2em $secondary-font;
+letter-spacing: 1px;
+text-decoration: none;
+color: $color-6;
+text-shadow: .8em $color-5;
+margin-left: 4%;
+
+}
+
+.preamble {
+#zen-preamble {
+h3 {
+margin-top: 5em;
+margin-bottom: 0;
+}
+}
 }
 
 
+p {
+margin: 0;
+text-align: justify;
+line-height: 2;
+padding: 3em;
+}
 
-@supports not (display: grid) {
-	
-		html {
-			margin: 0;
-			padding: 0;
-			}
-		
-		body { 
-			display: block;
-			font-family: $secondary-font;
-			font-size: 75%;
-			line-height: 1.88889;
-			width: 100%;
-			height: 100%;
-			margin: 0; 
-			padding: 0;
-			@include back-img-sz;
-			}
-		
-		h1 {
-			font-family: $primary-font;
-			font-size: 5em;
-			color: $color-1;
-			text-shadow: 1.2em $color-5;
-			margin: 0;
-			display: block;
-			float: left;
-		}
-		
-		h2 {  
-			font-family: $secondary-font;
-			color: $color-1;
-			display: flex;
-			flex-flow: row nowrap;
-			flex: 2 0 100%;  
-			padding-left: 2em;
-			padding-top: 2em;
-			width: 30%;
-			}
-		
-		h3 { 
-			font: 2em $secondary-font;
-			letter-spacing: 1px;
-			text-decoration: none;
-			//margin-bottom: 0;
-			color: $color-6;
-			text-shadow: .8em $color-5;
-			margin-left: 4%;
+abbr {
+border-bottom: none;
+}
 
-			}
-		
-		.preamble {
-			#zen-preamble {
-			  h3 {
-				margin-top: 5em;
-				margin-bottom: 0;
-		}  
-			}
-		}
-		 
-		
-		// h2, h3, p {
-		// 	@include back-color;
-		// }
-		
-		p { 
-			margin: 0; 
-			text-align: justify;
-			font-family: $secondary-font;
-			line-height: 2;
-			padding: 3em;
-			}
-		
-		a:link { 
-			font-weight: bold; 
-			text-decoration: none; 
-			color: $color-8;
-			}
-		
-		a:visited { 
-			font-weight: bold; 
-			text-decoration: none; 
-			color: $color-4;
-			}
-		a:hover, a:focus, a:active { 
-			text-decoration: underline; 
-			color: $color-3;
-			}
-		abbr {
-			border-bottom: none;
-			}
-		
-		
-		/* specific divs */
-		.page-wrapper { 
-			padding: 0 175px 0 110px;  
-			position: relative;
-			@include back-color;
-			width: 60%;
-			margin-left: 15%;
-			margin-right: 5%;			
 
-			}
-		
-		.intro, .explanation { 
-			// min-width: 470px;
-			// width: 100%;
-			margin-right: 5%;
-			}
-		.supporting {
-			margin: 0 15%;
-		}
-		header {
-			padding-top: 20px;
-			padding-bottom: 1em;
-			height: 87px;
-			margin-left: 17%;
-		}
-		
-		.summary {
-			// clear: both; 
-			// margin: 20px 20px 20px 10px; 
-			// width: 160px; 
-			// float: left;
-			margin-bottom: 0;
-			}
-		.summary p {
-			font: italic 1.1em/2.2 georgia; 
-			text-align: center;
-			margin-bottom: -5em;
-			}
-		
-		.preamble {
-			clear: right; 
-			padding: 0px 10px 0 10px;
-			margin-top: 4em;
-			margin-left: 15%;
-			margin-right: 5%;
-			}
-		.supporting {	
-			padding-left: 10px; 
-			margin-bottom: 40px;
-			}
-		
-		footer { 
-			text-align: center; 
-			}
-		footer a:link, footer a:visited { 
-			margin-right: 20px; 
-			}
-		
-		.sidebar {
-			// float: left;
-			// position: absolute; 
-			// top: 0; 
-			// right: 0;
-			// margin-right: 85%;
-			.wrapper { 
-			font: 10px $secondary-font;
-			 /*Background for sidebar */
-		//	background: transparent url(http://csszengarden.com/001/paper-bg.jpg) top left repeat-y; 
-			padding: 10px; 
-			margin-top: 150px; 
-			width: 130px; 
-			}
-			h3.select {   
-			//margin: 3em 0 2em 0; 
-			width: 2em; 
-			height: 5em; 
-			background-color: transparent;
-			}
-			h3.archives { 
-			background: transparent; 
-			margin: 0; 
-			width: 20em; 
-			height: 4em; 
-			}
-			h3.resources { 
-			background: transparent; 
-			margin: 25px 0 5px 0; 
-			width:63px; 
-			height: 10px; 
-			}
+// specific divs
+.page-wrapper {
+padding: 0 175px 0 110px;
+position: relative;
+@include back-color;
+width: 60%;
+margin-left: 15%;
+margin-right: 5%;
 
-			ul {
-			margin: 0;
-			padding: 0;
-			}
-			li {
-			line-height: 1.3em; 
-		//	background: transparent url(http://csszengarden.com/001/cr1.gif) no-repeat top center; 
-			display: block; 
-			padding-top: 5px; 
-			margin-bottom: 5px;
-			list-style-type: none;			
-			}
-			li a:link {
-			color:$color-4;
-			}
-			li a:visited {
-			color: $color-4;
-			}
-			}
-		 		
-		// .extra1 {
-		// 	/* pagoda picture */
-		// 	/* background: transparent url(http://csszengarden.com/001/cr2.gif) top left no-repeat;  */
-		// 	background: transparent $tree;
-		// 	position: absolute; 
-		// 	top: 40px; 
-		// 	right: 0; 
-		// 	width: 148px; 
-		// 	height: 110px;
-		// 	}
-	
-	@media only screen and (max-width: 600px) {
-		body {
-			font-size: 75%;
-		}
+}
 
-	}
-    @media only screen and (min-width: 601px) {
-			.sidebar {
-				margin-right: 85%;
-				float: left;
-				position: absolute; 
-				top: 0; 
-				right: 0;
-				
-			}
+.intro, .explanation {
+margin-right: 5%;
+}
 
-	}
-    //the rest of your code.
- }
+.supporting {
+margin: 0 15%;
+}
+
+header {
+padding-top: 20px;
+padding-bottom: 1em;
+height: 87px;
+margin-left: 17%;
+}
+
+.summary {
+margin-bottom: 0;
+}
+
+.summary p {
+font: italic 1.1em/2.2 $font-3; //changed to a variable
+text-align: center;
+margin-bottom: -5em;
+}
+
+.preamble {
+clear: right;
+padding: 0px 10px 0 10px;
+margin-top: 4em;
+margin-left: 15%;
+margin-right: 5%;
+}
+.supporting {
+padding-left: 10px;
+margin-bottom: 40px;
+}
+
+footer {
+text-align: center;
+}
+footer a:link, footer a:visited {
+margin-right: 20px;
+}
+
+.sidebar {
+& .wrapper {
+font: 10px $secondary-font;
+padding: 10px;
+margin-top: 150px;
+width: 130px;
+}
+
+h3.select {
+width: 2em;
+height: 5em;
+background-color: transparent;
+}
+
+h3.archives {
+background: transparent;
+margin: 0;
+width: 20em;
+height: 4em;
+}
+h3.resources {
+background: transparent;
+margin: 25px 0 5px 0;
+width:63px;
+height: 10px;
+}
+
+ul {
+margin: 0;
+padding: 0;
+}
+
+li {
+line-height: 1.3em;
+display: block;
+padding-top: 5px;
+margin-bottom: 5px;
+list-style-type: none;
+& a:link{
+color:$color-4;
+}
+}
+}
+
+
+// .extra1 {
+// /* pagoda picture */
+// /* background: transparent url(http://csszengarden.com/001/cr2.gif) top left no-repeat; */
+// background: transparent $tree;
+// position: absolute;
+// top: 40px;
+// right: 0;
+// width: 148px;
+// height: 110px;
+// }
+
+}
